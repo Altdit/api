@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('login', function () {
-    return response()->json([
-       'login' => true
-    ]);
+Route::get('login', function (Request $request) {
+    return response()->json(['login' => true]);
 })->name('login');
 
 Route::middleware('auth:sanctum')->group(function () {
