@@ -1,0 +1,19 @@
+{
+  "require-dev": {
+    "spatie/backtrace": "<default>"
+  },
+  "require": {
+    "laravel/laravel": "<default>",
+    "laravel/socialite": "<default>",
+    "jrean/laravel-user-verification": "<default>",
+    "spatie/once": "<default>",
+    "spatie/url": "<default>",
+    "spatie/string": "<default>",
+    "spatie/blink": "<default>",
+    "spatie/async": "<default>",
+    "spatie/laravel-collection-macros": "<default>",
+    "spatie/period": "<default>",
+    "guzzlehttp/guzzle": "<default>",
+    "": "<default>"
+  }
+}
