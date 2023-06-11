@@ -1,19 +1,74 @@
 {
-  "require-dev": {
-    "spatie/backtrace": "<default>"
-  },
-  "require": {
-    "laravel/laravel": "<default>",
-    "laravel/socialite": "<default>",
-    "jrean/laravel-user-verification": "<default>",
-    "spatie/once": "<default>",
-    "spatie/url": "<default>",
-    "spatie/string": "<default>",
-    "spatie/blink": "<default>",
-    "spatie/async": "<default>",
-    "spatie/laravel-collection-macros": "<default>",
-    "spatie/period": "<default>",
-    "guzzlehttp/guzzle": "<default>",
-    "": "<default>"
-  }
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": ["laravel", "framework"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.7",
+        "jrean/laravel-user-verification": "^11.0",
+        "laravel/framework": "^10.10",
+        "laravel/sanctum": "^3.2",
+        "laravel/socialite": "^5.6",
+        "laravel/tinker": "^2.8",
+        "spatie/async": "^1.5",
+        "spatie/blink": "^1.2",
+        "spatie/laravel-collection-macros": "^7.12",
+        "spatie/once": "^3.1",
+        "spatie/period": "^2.4",
+        "spatie/url": "^2.2"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.18",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.1",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
