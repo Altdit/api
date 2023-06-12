@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use \App\Http\Controllers\ApiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,22 +20,22 @@ Route::get('login', function (Request $request) {
     return response()->json(['login' => true]);
 })->name('login');
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/best', [\App\Http\Controllers\ApiController::class, 'best'])->name('best');
-    Route::get('/by_id/names', [])->name('by_id_names');
-    Route::get('/comments/article', [])->name('comments_article');
-    Route::get('/controversial', [])->name('controversial');
-    Route::get('/duplicates/article', [])->name('duplicates_article');
-    Route::get('/hot', [])->name('hot');
-    Route::get('/new', [])->name('new');
-    Route::get('/random', [])->name('random');
-    Route::get('/rising', [])->name('rising');
-    Route::get('/search', [])->name('search');
-    Route::get('/sidebar', [])->name('sidebar');
-    Route::get('/sort', [])->name('sort');
-    Route::get('/sticky', [])->name('sticky');
-    Route::get('/stylesheet', [])->name('stylesheet');
-    Route::get('/top', [])->name('top');
+Route::middleware('')->group(function () {
+    Route::get('/best', [ApiController::class, 'best'])->name('best');
+    Route::get('/by_id/names', [ApiController::class, 'namesById'])->name('by_id_names');
+    Route::get('/comments/article', [ApiController::class, 'articleComments'])->name('comments_article');
+    Route::get('/controversial', [ApiController::class, 'controversial'])->name('controversial');
+    Route::get('/duplicates/article', [ApiController::class, 'duplicateArticles'])->name('duplicates_article');
+    Route::get('/hot', [ApiController::class, 'hot'])->name('hot');
+    Route::get('/new', [ApiController::class, 'new'])->name('new');
+    Route::get('/random', [ApiController::class, 'random'])->name('random');
+    Route::get('/rising', [ApiController::class, 'rising'])->name('rising');
+    Route::get('/search', [ApiController::class, 'search'])->name('search');
+    Route::get('/sidebar', [ApiController::class, 'sidebar'])->name('sidebar');
+    Route::get('/sort', [ApiController::class, 'sort'])->name('sort');
+    Route::get('/sticky', [ApiController::class, 'sticky'])->name('sticky');
+    Route::get('/stylesheet', [ApiController::class, 'stylesheet'])->name('stylesheet');
+    Route::get('/top', [ApiController::class, 'top'])->name('top');
 
     Route::prefix('api')->group(function () {
         Route::get('/banned', [])->name('banned');
