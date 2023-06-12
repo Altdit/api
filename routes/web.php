@@ -19,7 +19,7 @@ Route::get('login', function (Request $request) {
 })->name('login');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/best', [])->name('best');
+    Route::get('/best', [\App\Http\Controllers\ApiController::class, 'best'])->name('best');
     Route::get('/by_id/names', [])->name('by_id_names');
     Route::get('/comments/article', [])->name('comments_article');
     Route::get('/controversial', [])->name('controversial');
